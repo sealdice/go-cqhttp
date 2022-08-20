@@ -26,7 +26,7 @@ require (
 )
 
 require (
-	github.com/RomiChan/protobuf v0.1.1-0.20220602121309-9e3b8cbefd7a // indirect
+	github.com/RomiChan/protobuf v0.1.1-0.20220624030127-3310cba9dbc0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fumiama/imgsz v0.0.2 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
@@ -54,3 +54,5 @@ require (
 	modernc.org/mathutil v1.2.2 // indirect
 	modernc.org/memory v1.0.4 // indirect
 )
+
+replace github.com/Mrs4s/MiraiGo => github.com/sealdice/MiraiGo v0.0.0-20220820072533-24a261e773d1
