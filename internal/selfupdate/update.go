@@ -36,24 +36,24 @@ func lastVersion() (string, error) {
 }
 
 // CheckUpdate 检查更新
-func CheckUpdate() {
-	logrus.Infof("正在检查更新.")
-	if base.Version == "(devel)" {
-		logrus.Warnf("检查更新失败: 使用的 Actions 测试版或自编译版本.")
-		return
-	}
-	latest, err := lastVersion()
-	if err != nil {
-		logrus.Warnf("检查更新失败: %v", err)
-		return
-	}
-	if global.VersionNameCompare(base.Version, latest) {
-		logrus.Infof("当前有更新的 go-cqhttp 可供更新, 请前往 https://github.com/Mrs4s/go-cqhttp/releases 下载.")
-		logrus.Infof("当前版本: %v 最新版本: %v", base.Version, latest)
-		return
-	}
-	logrus.Infof("检查更新完成. 当前已运行最新版本.")
-}
+// func CheckUpdate() {
+// 	logrus.Infof("正在检查更新.")
+// 	if base.Version == "(devel)" {
+// 		logrus.Warnf("检查更新失败: 使用的 Actions 测试版或自编译版本.")
+// 		return
+// 	}
+// 	latest, err := lastVersion()
+// 	if err != nil {
+// 		logrus.Warnf("检查更新失败: %v", err)
+// 		return
+// 	}
+// 	if global.VersionNameCompare(base.Version, latest) {
+// 		logrus.Infof("当前有更新的 go-cqhttp 可供更新, 请前往 https://github.com/Mrs4s/go-cqhttp/releases 下载.")
+// 		logrus.Infof("当前版本: %v 最新版本: %v", base.Version, latest)
+// 		return
+// 	}
+// 	logrus.Infof("检查更新完成. 当前已运行最新版本.")
+// }
 
 func binaryName() string {
 	goarch := runtime.GOARCH
