@@ -325,7 +325,7 @@ func Main() {
 	log.Info("アトリは、高性能ですから!")
 
 	go func() {
-		selfupdate.CheckUpdate()
+		// selfupdate.CheckUpdate()
 		selfdiagnosis.NetworkDiagnosis(cli)
 	}()
 
