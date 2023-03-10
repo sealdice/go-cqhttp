@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/FloatTech/sqlite v1.5.7
 	github.com/Microsoft/go-winio v0.6.0
-	github.com/Mrs4s/MiraiGo v0.0.0-20230305102225-a42218b851d8
+	github.com/Mrs4s/MiraiGo v0.0.0-20230310170800-80b6b2843637
 	github.com/RomiChan/syncx v0.0.0-20221202055724-5f842c53020e
 	github.com/RomiChan/websocket v1.4.3-0.20220123145318-307a86b127bc
 	github.com/fumiama/go-base16384 v1.6.1
@@ -67,4 +67,4 @@ require (
 	modernc.org/token v1.0.1 // indirect
 )
 
-replace github.com/Mrs4s/MiraiGo => github.com/sealdice/MiraiGo v0.0.0-20230309193633-cf2e5fdf6da1
+replace github.com/Mrs4s/MiraiGo => github.com/sealdice/MiraiGo v0.0.0-20230310175752-83742f545b36

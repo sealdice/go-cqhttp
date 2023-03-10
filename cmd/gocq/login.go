@@ -14,7 +14,7 @@ import (
 
 	"github.com/Mrs4s/MiraiGo/client"
 	"github.com/Mrs4s/MiraiGo/utils"
-	"github.com/Mrs4s/MiraiGo/warpper"
+	"github.com/Mrs4s/MiraiGo/wrapper"
 	"github.com/mattn/go-colorable"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
@@ -28,7 +28,7 @@ import (
 var console = bufio.NewReader(os.Stdin)
 
 func init() {
-	warpper.DandelionEnergy = energy
+	wrapper.DandelionEnergy = energy
 }
 
 func readLine() (str string) {
@@ -169,6 +169,8 @@ func loginResponseProcessor(res *client.LoginResponse) error {
 			if strings.Contains(text, "1") {
 				ticket := getTicket(res.VerifyUrl)
 				if ticket == "" {
+					log.Infof("按 Enter 继续....")
+					readLine()
 					os.Exit(0)
 				}
 				res, err = cli.SubmitTicket(ticket)
@@ -222,12 +224,9 @@ func loginResponseProcessor(res *client.LoginResponse) error {
 			os.Exit(0)
 		case client.OtherLoginError, client.UnknownLoginError, client.TooManySMSRequestError:
 			msg := res.ErrorMessage
-			if strings.Contains(msg, "冻结") {
-				log.Fatalf("账号被冻结")
-			}
-			log.Warnf("登录失败: %v", msg)
-			log.Infof("按 Enter 或等待 5s 后继续....")
-			readLineTimeout(time.Second * 5)
+			log.Warnf("登录失败: %v Code: %v", msg, res.Code)
+			log.Infof("按 Enter 继续....")
+			readLine()
 			os.Exit(0)
 		}
 	}
@@ -273,22 +272,22 @@ func fetchCaptcha(id string) string {
 	return ""
 }
 
-func energy(id string, salt []byte) []byte {
+func energy(uin uint64, id string, salt []byte) ([]byte, error) {
 	// temporary solution
 	response, err := download.Request{
 		Method: http.MethodPost,
 		URL:    "https://captcha.go-cqhttp.org/sdk/dandelion/energy",
 		Header: map[string]string{"Content-Type": "application/x-www-form-urlencoded"},
-		Body:   bytes.NewReader([]byte(fmt.Sprintf("id=%s&salt=%s", id, hex.EncodeToString(salt)))),
+		Body:   bytes.NewReader([]byte(fmt.Sprintf("uin=%v&id=%s&salt=%s", uin, id, hex.EncodeToString(salt)))),
 	}.Bytes()
 	if err != nil {
 		log.Errorf("获取T544时出现问题: %v", err)
-		return nil
+		return nil, err
 	}
 	sign, err := hex.DecodeString(gjson.GetBytes(response, "result").String())
 	if err != nil {
 		log.Errorf("获取T544时出现问题: %v", err)
-		return nil
+		return nil, err
 	}
-	return sign
+	return sign, nil
 }
