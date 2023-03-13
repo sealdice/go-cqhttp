@@ -18,7 +18,7 @@ import (
 )
 
 func main() {
-	SetDefaultNS([]string{"8.8.8.8:53", "1.1.1.1:53"}, false)
+	SetDefaultNS([]string{"114.114.114.114:53", "8.8.8.8:53"}, false)
 	terminal.SetTitle()
 	gocq.InitBase()
 	gocq.PrepareData()
