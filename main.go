@@ -2,6 +2,7 @@
 package main
 
 import (
+	"context"
 	"net"
 
 	"github.com/Mrs4s/go-cqhttp/cmd/gocq"
