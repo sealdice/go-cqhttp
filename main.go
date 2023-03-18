@@ -4,6 +4,8 @@ package main
 import (
 	"context"
 	"net"
+	"os"
+	"path/filepath"
 
 	"github.com/Mrs4s/go-cqhttp/cmd/gocq"
 	"github.com/Mrs4s/go-cqhttp/global/terminal"
@@ -21,6 +23,7 @@ import (
 func main() {
 	terminal.SetTitle()
 	dnsHack()
+	addFFmpegToPath()
 	gocq.InitBase()
 	gocq.PrepareData()
 	gocq.LoginInteract()
@@ -45,5 +48,32 @@ func dnsHack() {
 			}
 			return conn, nil
 		},
+	}
+}
+
+func addFFmpegToPath() {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		return
+	}
+	ffmpegPaths := []string{
+		filepath.Join(dir, "ffmpeg"),
+		filepath.Join(dir, "ffmpeg/bin"),
+		filepath.Join(dir, "../ffmpeg"),
+		filepath.Join(dir, "../ffmpeg/bin"),
+		"./ffmpeg",
+		"./ffmpeg/bin",
+		"../ffmpeg",
+		"../ffmpeg/bin",
+	}
+
+	uniquePaths := make(map[string]bool)
+	for _, path := range ffmpegPaths {
+		absPath, _ := filepath.Abs(path)
+		uniquePaths[absPath] = true
+	}
+
+	for path := range uniquePaths {
+		_ = os.Setenv("PATH", path+string(os.PathListSeparator)+os.Getenv("PATH"))
 	}
 }
