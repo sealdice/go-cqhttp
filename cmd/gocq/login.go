@@ -196,7 +196,7 @@ func loginResponseProcessor(res *client.LoginResponse) error {
 			log.Warnf("1. 向手机 %v 发送短信验证码", res.SMSPhone)
 			log.Warnf("2. 使用手机QQ扫码验证.")
 			log.Warn("请输入(1 - 2)：")
-			text = readIfTTY("2")
+			text = readIfTTY("1")
 			if strings.Contains(text, "1") {
 				if !cli.RequestSMS() {
 					log.Warnf("发送验证码失败，可能是请求过于频繁.")
