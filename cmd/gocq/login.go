@@ -204,6 +204,7 @@ func loginResponseProcessor(res *client.LoginResponse) error {
 				}
 				log.Warn("请输入短信验证码： (Enter 提交)")
 				text = readLine()
+				log.Infof("读取到输入验证码: %v", text)
 				res, err = cli.SubmitSMS(text)
 				continue
 			}
