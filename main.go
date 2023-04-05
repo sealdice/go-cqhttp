@@ -21,7 +21,8 @@ import (
 )
 
 func main() {
-	terminal.SetTitle()
+	// 为子进程时会整个修改上级进程的terminal title，所以关闭
+	// terminal.SetTitle()
 	dnsHack()
 	addFFmpegToPath()
 	gocq.InitBase()
