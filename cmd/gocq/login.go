@@ -218,6 +218,8 @@ func loginResponseProcessor(res *client.LoginResponse) error {
 			os.Exit(0)
 		case client.OtherLoginError, client.UnknownLoginError, client.TooManySMSRequestError:
 			msg := res.ErrorMessage
+			// 因为gocq作为子进程运行，升级最新版本令人误认为是主程序需要升级，所以替换抹掉
+			msg = strings.ReplaceAll(msg, "建议升级最新版本后重试", "")
 			log.Warnf("登录失败: %v Code: %v", msg, res.Code)
 			if res.Code == 235 {
 				log.Warnf("请删除 device.json 后重试.")
