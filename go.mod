@@ -67,4 +67,4 @@ require (
 	modernc.org/token v1.0.1 // indirect
 )
 
-replace github.com/Mrs4s/MiraiGo => github.com/sealdice/MiraiGo v0.0.0-20230405100117-651cf044e3bb
+replace github.com/Mrs4s/MiraiGo => github.com/sealdice/MiraiGo v0.0.0-20230411152311-a1fb3ae3e859
