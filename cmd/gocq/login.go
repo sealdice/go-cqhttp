@@ -15,18 +15,17 @@ import (
 	"github.com/Mrs4s/MiraiGo/client"
 	"github.com/Mrs4s/MiraiGo/utils"
 	"github.com/Mrs4s/MiraiGo/wrapper"
-	"github.com/Mrs4s/go-cqhttp/internal/encryption"
-	_ "github.com/Mrs4s/go-cqhttp/internal/encryption/t544"
 	"github.com/mattn/go-colorable"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/tidwall/gjson"
 	"gopkg.ilharper.com/x/isatty"
 
-	"github.com/Mrs4s/go-cqhttp/internal/base"
-
 	"github.com/Mrs4s/go-cqhttp/global"
+	"github.com/Mrs4s/go-cqhttp/internal/base"
 	"github.com/Mrs4s/go-cqhttp/internal/download"
+	"github.com/Mrs4s/go-cqhttp/internal/encryption"
+	_ "github.com/Mrs4s/go-cqhttp/internal/encryption/t544" // side effect
 )
 
 var console = bufio.NewReader(os.Stdin)
@@ -221,8 +220,14 @@ func loginResponseProcessor(res *client.LoginResponse) error {
 			// 因为gocq作为子进程运行，升级最新版本令人误认为是主程序需要升级，所以替换抹掉
 			msg = strings.ReplaceAll(msg, "建议升级最新版本后重试", "")
 			log.Warnf("登录失败: %v Code: %v", msg, res.Code)
-			if res.Code == 235 {
-				log.Warnf("请删除 device.json 后重试.")
+			switch res.Code {
+			case 235:
+				log.Warnf("设备信息被封禁, 请删除 device.json 后重试.")
+			case 237:
+				log.Warnf("登录过于频繁, 请在手机QQ登录并根据提示完成认证后等一段时间重试")
+			case 45: // 在提供 t544 后还是出现45错误是需要强行升级到最新客户端或被限制非常用设备
+				log.Warnf("你的账号涉嫌违规被限制在非常用设备登录, 请在手机QQ登录并根据提示完成认证")
+				log.Warnf("或使用 -update-protocol 升级到最新协议后重试")
 			}
 			log.Infof("按 Enter 继续....")
 			readLine()
