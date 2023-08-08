@@ -85,8 +85,8 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
 github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec h1:W09IVJc94icq4NjY3clb7Lk8O1qJ8BdBEF8z0ibU0rE=
 github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
-github.com/sealdice/MiraiGo v0.0.0-20230411152311-a1fb3ae3e859 h1:jS9Grw97r+gPvdVM5LkNUO7TzxviYWKaMIaDhnlmPkw=
-github.com/sealdice/MiraiGo v0.0.0-20230411152311-a1fb3ae3e859/go.mod h1:62UwKblDArTsreofI/rov02o439zkLf5SI6opseA0S8=
+github.com/sealdice/MiraiGo v0.0.0-20230808154024-2974834fef9d h1:wVrL/hCuUhr7JVErojjKv/R8lR8Rf93jUTLa6zg9iFE=
+github.com/sealdice/MiraiGo v0.0.0-20230808154024-2974834fef9d/go.mod h1:62UwKblDArTsreofI/rov02o439zkLf5SI6opseA0S8=
 github.com/segmentio/asm v1.2.0 h1:9BQrFxC+YOHJlTlHGkTrFWf59nbL3XnCoFLTwDCI7ys=
 github.com/segmentio/asm v1.2.0/go.mod h1:BqMnlJP91P8d+4ibuonYZw9mfnzI9HfxselHZr5aAcs=
 github.com/sirupsen/logrus v1.9.0 h1:trlNQbNUG3OdDrDil03MCb1H2o9nJ1x4/5LYw7byDE0=
