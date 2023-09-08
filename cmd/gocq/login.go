@@ -315,10 +315,10 @@ func signSubmit(uin string, cmd string, callbackID int64, buffer []byte, t strin
 		signServer += "/"
 	}
 	buffStr := hex.EncodeToString(buffer)
-    buffEnd := buffStr[:]
-    if len(buffEnd) > 10 {
-        buffEnd = buffEnd[len(buffEnd)-10:]
-    }
+	buffEnd := buffStr
+	if len(buffEnd) > 10 {
+		buffEnd = buffEnd[len(buffEnd)-10:]
+	}
 	log.Infof("submit %v: uin=%v, cmd=%v, callbackID=%v, buffer-end=%v", t, uin, cmd, callbackID, buffEnd)
 	_, err := download.Request{
 		Method: http.MethodGet,
