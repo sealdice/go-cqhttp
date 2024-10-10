@@ -202,7 +202,7 @@ func removeLocalElement(elements []message.IMessageElement) []message.IMessageEl
 	for i, e := range elements {
 		switch e.(type) {
 		case *msg.LocalImage, *msg.LocalVideo:
-		case *message.VoiceElement: // 未上传的语音消息， 也删除
+		//case *message.VoiceElement: // 未上传的语音消息， 也删除
 		case nil:
 		default:
 			if j < i {
