@@ -1,8 +1,6 @@
 module github.com/sealdice/go-cqhttp
 
-go 1.22.1
-
-toolchain go1.22.4
+go 1.20
 
 require (
 	github.com/FloatTech/sqlite v1.6.3
