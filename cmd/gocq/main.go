@@ -235,22 +235,11 @@ func LoginInteract() {
 	} else if len(base.Account.Password) > 0 {
 		base.PasswordHash = md5.Sum([]byte(base.Account.Password))
 	}
-	if !base.FastStart {
-		log.Info("Bot将在5秒后登录并开始信息处理, 按 Ctrl+C 取消.")
-		time.Sleep(time.Second * 5)
-	}
-	log.Info("开始尝试登录并同步消息...")
-	log.Infof("使用协议: %s", device.Protocol.Version())
+	// if !base.FastStart {
+	// 	log.Info("Bot将在5秒后登录并开始信息处理, 按 Ctrl+C 取消.")
+	// 	time.Sleep(time.Second * 5)
+	// }
 	cli = newClient()
-	cli.UseDevice(device)
-	isQRCodeLogin := (base.Account.Uin == 0 || len(base.Account.Password) == 0) && !base.Account.Encrypt
-	isTokenLogin := false
-
-	if isQRCodeLogin && cli.Device().Protocol != 2 {
-		log.Warn("当前协议不支持二维码登录, 请配置账号密码登录.")
-		os.Exit(0)
-	}
-
 	// 加载本地版本信息, 一般是在上次登录时保存的
 	versionFile := path.Join(global.VersionsPath, fmt.Sprint(int(cli.Device().Protocol))+".json")
 	if global.PathExists(versionFile) {
@@ -265,6 +254,16 @@ func LoginInteract() {
 			os.Exit(0)
 		}
 		log.Infof("从文件 %s 读取协议版本 %v.", versionFile, cli.Device().Protocol.Version())
+	}
+	cli.UseDevice(device)
+	log.Info("开始尝试登录并同步消息...")
+	log.Infof("使用协议: %s", device.Protocol.Version())
+	isQRCodeLogin := (base.Account.Uin == 0 || len(base.Account.Password) == 0) && !base.Account.Encrypt
+	isTokenLogin := false
+
+	if isQRCodeLogin && cli.Device().Protocol != 2 {
+		log.Warn("当前协议不支持二维码登录, 请配置账号密码登录.")
+		os.Exit(0)
 	}
 
 	saveToken := func() {
@@ -482,8 +481,8 @@ func newClient() *client.QQClient {
 }
 
 var remoteVersions = map[int]string{
-	1: "https://raw.githubusercontent.com/RomiChan/protocol-versions/master/android_phone.json",
-	6: "https://raw.githubusercontent.com/RomiChan/protocol-versions/master/android_pad.json",
+	1: "https://raw.githubusercontent.com/sealdice/protocol-versions/master/android_phone.json",
+	6: "https://raw.githubusercontent.com/sealdice/protocol-versions/master/android_pad.json",
 }
 
 func getRemoteLatestProtocolVersion(protocolType int) ([]byte, error) {

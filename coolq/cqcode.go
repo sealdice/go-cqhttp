@@ -167,7 +167,7 @@ func toElements(e []message.IMessageElement, source message.Source) (r []msg.Ele
 			}
 		case *message.GroupImageElement:
 			data := pairs{
-				{K: "file", V: hex.EncodeToString(o.Md5) + ".image"},
+				{K: "file", V: o.ImageId},
 				{K: "subType", V: strconv.FormatInt(int64(o.ImageBizType), 10)},
 				{K: "url", V: o.Url},
 			}
@@ -193,7 +193,7 @@ func toElements(e []message.IMessageElement, source message.Source) (r []msg.Ele
 			}
 		case *message.FriendImageElement:
 			data := pairs{
-				{K: "file", V: hex.EncodeToString(o.Md5) + ".image"},
+				{K: "file", V: o.ImageId},
 				{K: "url", V: o.Url},
 			}
 			if o.Flash {
@@ -339,7 +339,7 @@ func ToMessageContent(e []message.IMessageElement, source message.Source) (r []g
 				"data": global.MSG{"file": o.Name, "url": o.Url},
 			}
 		case *message.GroupImageElement:
-			data := global.MSG{"file": hex.EncodeToString(o.Md5) + ".image", "url": o.Url, "subType": uint32(o.ImageBizType)}
+			data := global.MSG{"file": o.ImageId, "url": o.Url, "subType": uint32(o.ImageBizType)}
 			switch {
 			case o.Flash:
 				data["type"] = "flash"
@@ -357,7 +357,7 @@ func ToMessageContent(e []message.IMessageElement, source message.Source) (r []g
 				"data": global.MSG{"file": hex.EncodeToString(o.Md5) + ".image", "url": o.Url},
 			}
 		case *message.FriendImageElement:
-			data := global.MSG{"file": hex.EncodeToString(o.Md5) + ".image", "url": o.Url}
+			data := global.MSG{"file": o.ImageId, "url": o.Url}
 			if o.Flash {
 				data["type"] = "flash"
 			}
