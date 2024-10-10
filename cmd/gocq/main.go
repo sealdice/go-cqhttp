@@ -31,7 +31,6 @@ import (
 	"github.com/sealdice/go-cqhttp/internal/cache"
 	"github.com/sealdice/go-cqhttp/internal/download"
 	"github.com/sealdice/go-cqhttp/internal/selfdiagnosis"
-	"github.com/sealdice/go-cqhttp/internal/selfupdate"
 	"github.com/sealdice/go-cqhttp/modules/servers"
 	"github.com/sealdice/go-cqhttp/server"
 )
@@ -122,12 +121,12 @@ func LoginInteract() {
 	if len(arg) > 1 {
 		for i := range arg {
 			switch arg[i] {
-			case "update":
-				if len(arg) > i+1 {
-					selfupdate.SelfUpdate(arg[i+1])
-				} else {
-					selfupdate.SelfUpdate("")
-				}
+			// case "update":
+			// 	if len(arg) > i+1 {
+			// 		selfupdate.SelfUpdate(arg[i+1])
+			// 	} else {
+			// 		selfupdate.SelfUpdate("")
+			// 	}
 			case "key":
 				p := i + 1
 				if len(arg) > p {
@@ -240,6 +239,7 @@ func LoginInteract() {
 	// 	time.Sleep(time.Second * 5)
 	// }
 	cli = newClient()
+	cli.UseDevice(device)
 	// 加载本地版本信息, 一般是在上次登录时保存的
 	versionFile := path.Join(global.VersionsPath, fmt.Sprint(int(cli.Device().Protocol))+".json")
 	if global.PathExists(versionFile) {
@@ -419,7 +419,7 @@ func LoginInteract() {
 //   - dump stack: syscall.SIGQUIT, syscall.SIGUSR1
 func WaitSignal() {
 	go func() {
-		selfupdate.CheckUpdate()
+		// selfupdate.CheckUpdate()
 		selfdiagnosis.NetworkDiagnosis(cli)
 	}()
 
