@@ -1,6 +1,8 @@
 module github.com/sealdice/go-cqhttp
 
-go 1.20
+go 1.22.1
+
+toolchain go1.22.4
 
 require (
 	github.com/FloatTech/sqlite v1.6.3
@@ -12,7 +14,7 @@ require (
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/mattn/go-colorable v0.1.13
 	github.com/pkg/errors v0.9.1
-	github.com/sealdice/MiraiGo v0.0.0-20241010082500-65c5f6949c5c
+	github.com/sealdice/MiraiGo v0.0.0-20241010131311-00329ebe9e5c
 	github.com/segmentio/asm v1.2.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.1

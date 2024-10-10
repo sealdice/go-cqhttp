@@ -242,7 +242,7 @@ func (bot *CQBot) uploadMedia(target message.Source, elements []message.IMessage
 			})
 		case *message.VoiceElement:
 			w.do(func() {
-				m, err := bot.Client.UploadVoice(target, bytes.NewReader(e.Data))
+				m, err := bot.Client.UploadRecord(target, e)
 				if err != nil {
 					log.Warnf(uploadFailedTemplate, source, target.PrimaryID, "语音", err)
 				} else {

@@ -545,7 +545,7 @@ func (bot *CQBot) voice(elem msg.Element) (m any, err error) {
 			return nil, err
 		}
 	}
-	return &message.VoiceElement{Data: data}, nil
+	return message.NewRecord(data), nil
 }
 
 func (bot *CQBot) at(id, name string) (m any, err error) {
