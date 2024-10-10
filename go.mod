@@ -12,7 +12,7 @@ require (
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/mattn/go-colorable v0.1.13
 	github.com/pkg/errors v0.9.1
-	github.com/sealdice/MiraiGo v0.0.0-20241010135647-909091860b34
+	github.com/sealdice/MiraiGo v0.0.0-20241010175707-a448c693c364
 	github.com/segmentio/asm v1.2.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.1
