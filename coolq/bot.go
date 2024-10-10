@@ -12,22 +12,22 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Mrs4s/MiraiGo/binary"
-	"github.com/Mrs4s/MiraiGo/client"
-	"github.com/Mrs4s/MiraiGo/message"
-	"github.com/Mrs4s/MiraiGo/utils"
 	"github.com/RomiChan/syncx"
 	"github.com/pkg/errors"
+	"github.com/sealdice/MiraiGo/binary"
+	"github.com/sealdice/MiraiGo/client"
+	"github.com/sealdice/MiraiGo/message"
+	"github.com/sealdice/MiraiGo/utils"
 	"github.com/segmentio/asm/base64"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/image/webp"
 
-	"github.com/Mrs4s/go-cqhttp/db"
-	"github.com/Mrs4s/go-cqhttp/global"
-	"github.com/Mrs4s/go-cqhttp/internal/base"
-	"github.com/Mrs4s/go-cqhttp/internal/mime"
-	"github.com/Mrs4s/go-cqhttp/internal/msg"
-	"github.com/Mrs4s/go-cqhttp/pkg/onebot"
+	"github.com/sealdice/go-cqhttp/db"
+	"github.com/sealdice/go-cqhttp/global"
+	"github.com/sealdice/go-cqhttp/internal/base"
+	"github.com/sealdice/go-cqhttp/internal/mime"
+	"github.com/sealdice/go-cqhttp/internal/msg"
+	"github.com/sealdice/go-cqhttp/pkg/onebot"
 )
 
 // CQBot CQBot结构体,存储Bot实例相关配置

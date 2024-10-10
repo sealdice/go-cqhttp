@@ -3,14 +3,14 @@ package leveldb
 import (
 	"path"
 
-	"github.com/Mrs4s/MiraiGo/binary"
-	"github.com/Mrs4s/MiraiGo/utils"
 	"github.com/pkg/errors"
+	"github.com/sealdice/MiraiGo/binary"
+	"github.com/sealdice/MiraiGo/utils"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/opt"
 	"gopkg.in/yaml.v3"
 
-	"github.com/Mrs4s/go-cqhttp/db"
+	"github.com/sealdice/go-cqhttp/db"
 )
 
 type database struct {
