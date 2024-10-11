@@ -43,8 +43,9 @@ _✨ 基于 [Mirai](https://github.com/mamoe/mirai) 以及 [MiraiGo](https://git
 </p>
 
 ## 重要信息
-由于QQ官方针对协议库的围追堵截, 不断更新加密方案, 我们已无力继续维护此项目.
-建议Bot开发者尽快迁移至无头NTQQ项目 -> https://github.com/Mrs4s/go-cqhttp/issues/2471
+尽微薄之力修了一些基础功能的bug，目前能够正常登录以及收发消息，欢迎提交issue。推荐使用AndroidPad协议登录，你可以在 [这里](https://github.com/sealdice/protocol-versions/tree/master/android_pad) 找到对应版本的协议参数文件，更名为6.json后放入./data/versions文件夹中。
+> 请在与程序相同的网络环境下进行滑块验证，减少Code237风险
+> Signature API is now not provided, you may need to find it somewhere.
 
 ## 兼容性
 go-cqhttp 兼容 [OneBot-v11](https://github.com/botuniverse/onebot-11) 绝大多数内容，并在其基础上做了一些扩展，详情请看 go-cqhttp 的文档。
