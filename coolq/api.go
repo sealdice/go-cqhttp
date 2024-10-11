@@ -2137,6 +2137,22 @@ func (bot *CQBot) CQGetSupportedActions(spec *onebot.Spec) global.MSG {
 	return OK(spec.SupportedActions)
 }
 
+// CQGetRkey 获取Rkey
+//
+// @route(get_rkey)
+func (bot *CQBot) CQGetRkey() global.MSG {
+	rkeys, err := bot.Client.FetchRkey()
+	if err != nil || len(rkeys) < 2 {
+		return Failed(100, "GET_RKEY_ERROR", err.Error())
+	}
+	return OK(global.MSG{
+		"private_rkey": rkeys[10].RKey,
+		"group_rkey":   rkeys[20].RKey,
+		"create_time":  rkeys[10].CreateTime,
+		"expire_time":  rkeys[10].ExpireTime,
+	})
+}
+
 // OK 生成成功返回值
 func OK(data any) global.MSG {
 	return global.MSG{"data": data, "retcode": 0, "status": "ok", "message": ""}

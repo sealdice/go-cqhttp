@@ -88,6 +88,7 @@ var supportedV11 = []string{
 	"update_guild_role",
 	"upload_group_file",
 	"upload_private_file",
+	"get_rkey",
 }
 
 var supportedV12 = []string{
@@ -166,4 +167,5 @@ var supportedV12 = []string{
 	"update_guild_role",
 	"upload_group_file",
 	"upload_private_file",
+	"get_rkey",
 }
