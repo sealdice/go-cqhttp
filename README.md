@@ -44,7 +44,7 @@ _✨ 基于 [Mirai](https://github.com/mamoe/mirai) 以及 [MiraiGo](https://git
 
 ## 重要信息
 尽微薄之力修了一些基础功能的bug，目前能够正常登录以及收发消息，欢迎提交issue。推荐使用AndroidPad协议登录，你可以在 [这里](https://github.com/sealdice/protocol-versions/tree/master/android_pad) 找到对应版本的协议参数文件，更名为6.json后放入./data/versions文件夹中。
-> 请在与程序相同的网络环境下进行滑块验证，减少Code237风险
+> 请在与程序相同的网络环境下进行滑块验证，减少Code237风险。  
 > Signature API is now not provided, you may need to find it somewhere.
 
 ## 兼容性
