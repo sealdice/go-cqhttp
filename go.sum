@@ -80,8 +80,8 @@ github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec h1:W09IVJc94
 github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
 github.com/rogpeppe/go-internal v1.9.0 h1:73kH8U+JUqXU8lRuOHeVHaa/SZPifC7BkcraZVejAe8=
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
-github.com/sealdice/MiraiGo v0.0.0-20241011035234-bab04187ad22 h1:0fwI5QJ8ylXpx0/AIjRa5/RbfrX7N0zDoXxrjxdSJPk=
-github.com/sealdice/MiraiGo v0.0.0-20241011035234-bab04187ad22/go.mod h1:qrHE4qD1sSp0i8UkqT/VhhrFTjYlQwNlCSkhfx3yCyc=
+github.com/sealdice/MiraiGo v0.0.0-20241018112010-a48f6dd61bf4 h1:3TrD+7ae5PZ1fENp+t9eGimR6nJD1JXhfnEaaOO51uM=
+github.com/sealdice/MiraiGo v0.0.0-20241018112010-a48f6dd61bf4/go.mod h1:qrHE4qD1sSp0i8UkqT/VhhrFTjYlQwNlCSkhfx3yCyc=
 github.com/segmentio/asm v1.2.0 h1:9BQrFxC+YOHJlTlHGkTrFWf59nbL3XnCoFLTwDCI7ys=
 github.com/segmentio/asm v1.2.0/go.mod h1:BqMnlJP91P8d+4ibuonYZw9mfnzI9HfxselHZr5aAcs=
 github.com/sirupsen/logrus v1.9.3 h1:dueUQJ1C2q9oE3F7wvmSGAaVtTmUizReu6fjN8uqzbQ=
